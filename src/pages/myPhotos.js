@@ -5,7 +5,7 @@ import FavImages from "../features/favorites/favorites";
 const MyPhotos = () => {
   return (
     <>
-      <Box mt="50px"/>
+      <Box mt="10px"/>
       <Filters />
       <FavImages />
     </>

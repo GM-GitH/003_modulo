@@ -1,4 +1,4 @@
-import { Modal, Box, Fade, Backdrop, Typography, IconButton, TextareaAutosize, List, ListItem, ListItemText } from "@mui/material";
+import { Modal, Box, Fade, Backdrop, Typography, IconButton, TextareaAutosize, List, ListItem, ListItemText, TextField } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ const modalStyle = {
   transform: "translate(-50%, -50%)",
   width: 400,
   maxWidth: "80%",
-  bgcolor: "gray",
+  bgcolor: "#E9E9E9",
   borderRadius: 2,
   boxShadow: 24,
   p: 4,
@@ -40,7 +40,15 @@ const ImageModal = ({ favModal, arrImages }) => {
     dispatch(setModalImage(arrFavImagesCopy[imgIndex]));
   };
   const imageDescription = favModal ? (
-    <TextareaAutosize minRows={2} placeholder="< Empty >" defaultValue={img.description} onChange={updateDescription} />
+
+    <TextField
+    id="outlined-multiline-static"
+    multiline
+    rows={4}
+    placeholder="< Empty >"
+    defaultValue={img.description} 
+    onChange={updateDescription}
+  />
   ) : (
     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
       {img.description}

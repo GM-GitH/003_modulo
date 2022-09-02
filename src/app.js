@@ -7,7 +7,7 @@ import { Box, Container, CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <Box className="app" display="flex" flexDirection="column" justifyContent="space-between" sx={{ backgroundColor: "darkgrey" }}>
+    <Box className="app" display="flex" flexDirection="column" justifyContent="space-between" sx={{ backgroundColor: "white" }}>
       <CssBaseline />
       <Header />
         <Container maxWidth="lg">
