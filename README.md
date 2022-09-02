@@ -1,6 +1,6 @@
 # Módulo 3:
 
-### [Click aquí para ver el ejemplo](https://gm-gith.github.io/003_module/)
+### [Click aquí para ver el ejemplo](https://gm-gith.github.io/003_modulo/)
 
 ### Descripción:    
 Simple buscador de fotos para practicar React & Redux con la API de Unsplash.
