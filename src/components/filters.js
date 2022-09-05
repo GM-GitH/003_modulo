@@ -7,7 +7,7 @@ const Filters = () => {
   const order = useSelector(selectOrderTerm);
   return (
     <Box id="filters" width="100%" display="block">
-      <Box justifyContent="flex-end" display="flex">
+      <Box justifyContent="space-between" display="flex">
         <TextField id="filterTerm" label="Keywords.." variant="outlined" defaultValue={useSelector(selectFilterTerm)} onChange={(e) => dispatch(filterByTerm(e.target.value))} />
         <FormControl>
           <InputLabel id="selectOrderLabel">Order by</InputLabel>

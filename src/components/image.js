@@ -12,30 +12,24 @@ const srcset = (imgUrl, size) => {
     srcSet: `${splitted}?w=${size}&h=${size}&fit=crop&auto=format&dpr=2 2x`,
   };
 };
-
 const Image = ({ item, arrImages, rowHeight }) => {
   const [favoriteIcon, setFavoriteIcon] = useState();
   const dispatch = useDispatch();
   const favImages = useSelector(selectFavImages);
-
   const handleOpen = () => {
     dispatch(setModalImage(arrImages[arrImages.indexOf(item)]));
     dispatch(toggleModal());
   };
-
   const favoriteIconClickHandler = () => {
     setFavoriteIcon(toggleFavoriteImg(item.id, arrImages));
     dispatch(updateFavImages());
   };
-
   const showImageBar = (e) => {
     e.currentTarget.children[1].style.opacity = 1;
   };
-
   useEffect(() => {
     setFavoriteIcon(selectFavoriteIcon(item.id));
   }, [dispatch, favImages]);
-
   return (
     <ImageListItem data-id={item.id} onMouseOver={showImageBar} >
       <img {...srcset(item.urls.thumb, rowHeight)} alt={item.alt_description} loading="lazy" onClick={handleOpen} />

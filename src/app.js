@@ -7,13 +7,13 @@ import { Box, Container, CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <Box className="app" display="flex" flexDirection="column" justifyContent="space-between" sx={{ backgroundColor: "white" }}>
+    <Box className="app" display="flex" flexDirection="column" sx={{ backgroundColor: "white" }}>
       <CssBaseline />
       <Header />
-        <Container maxWidth="lg">
+        <Container>
           <Routes>
             <Route path="/" element={<Search />} />
-            <Route path="/my-photos" element={<MyPhotos />} />
+            <Route path="my-photos" element={<MyPhotos />} />
           </Routes>
         </Container>
     </Box>

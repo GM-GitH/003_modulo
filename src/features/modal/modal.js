@@ -20,7 +20,6 @@ const modalStyle = {
   boxShadow: 24,
   p: 4,
 };
-
 const ImageModal = ({ favModal, arrImages }) => {
   const [favoriteIcon, setFavoriteIcon] = useState();
   const dispatch = useDispatch();
@@ -40,30 +39,19 @@ const ImageModal = ({ favModal, arrImages }) => {
     dispatch(setModalImage(arrFavImagesCopy[imgIndex]));
   };
   const imageDescription = favModal ? (
-
-    <TextField
-    id="outlined-multiline-static"
-    multiline
-    rows={4}
-    placeholder="< Empty >"
-    defaultValue={img.description} 
-    onChange={updateDescription}
-  />
+    <TextField id="outlined-multiline-static" multiline rows={4} placeholder="< Empty >" defaultValue={img.description} onChange={updateDescription} />
   ) : (
     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
       {img.description}
     </Typography>
   );
-
   const handleClose = () => {
     dispatch(toggleModal());
   };
-
   const favoriteIconClickHandler = () => {
     setFavoriteIcon(toggleFavoriteImg(img.id, arrImages));
     dispatch(updateFavImages());
   };
-
   const downloadImage = () => {
     fetch(img.urls.full)
       .then((response) => response.blob())
@@ -79,11 +67,9 @@ const ImageModal = ({ favModal, arrImages }) => {
       })
       .catch(() => console.log("The image couldn/'t be downloaded."));
   };
-
   useEffect(() => {
     setFavoriteIcon(selectFavoriteIcon(img.id));
   }, [open]);
-
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -116,7 +102,6 @@ const ImageModal = ({ favModal, arrImages }) => {
               <DownloadIcon />
             </IconButton>
           </List>
-
           {imageDescription}
         </Box>
       </Fade>
