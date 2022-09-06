@@ -12,18 +12,18 @@ const FavImages = () => {
   arrImages.sort((a, b) => b[favsOrderTerm] - a[favsOrderTerm])
 
   const [imagesObj, setImagesObj] = useState({
-    results: arrImages.slice(0, 30),
+    results: arrImages.slice(0, 12),
     totalPages: 1,
     currentPage: 1,
     totalImages: arrImages
   })
 
   useEffect(() => {
-    const totalPages = Math.ceil(arrImages.length / 30)
+    const totalPages = Math.ceil(arrImages.length / 12)
 
     setImagesObj({
       ...imagesObj,
-      results: arrImages.slice(0, 30),
+      results: arrImages.slice(0, 12),
       totalImages: arrImages,
       totalPages
     })

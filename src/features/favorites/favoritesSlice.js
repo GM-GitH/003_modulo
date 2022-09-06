@@ -4,8 +4,8 @@ import { getLocalStorageFavImages } from "../../features/functions";
 const buildResultObject = (totalImages) => ({
   currentPage: 1,
   totalImages,
-  results: totalImages.slice(0, 30),
-  totalPages: Math.ceil(totalImages.length / 30),
+  results: totalImages.slice(0, 12),
+  totalPages: Math.ceil(totalImages.length / 12),
 });
 const searchByDescription = (arrImages, term) => {
   const filteredImages = arrImages.filter((item) => {
@@ -19,27 +19,27 @@ export const favImagesSlice = createSlice({
   name: "favImages",
   initialState: {
     results: {
-      results: arrResults.slice(0, 30),
-      totalPages: Math.ceil(arrResults.length / 30),
+      results: arrResults.slice(0, 12),
+      totalPages: Math.ceil(arrResults.length / 12),
       currentPage: 1,
       totalImages: arrResults,
     },
     filteredResults: {
-      results: arrResults.slice(0, 30),
-      totalPages: Math.ceil(arrResults.length / 30),
+      results: arrResults.slice(0, 12),
+      totalPages: Math.ceil(arrResults.length / 12),
       currentPage: 1,
       totalImages: arrResults,
     },
     filterTerm: null,
-    orderTerm: "date",
+    orderTerm: "width",
   },
   reducers: {
     updateFavImages: (state) => {
       const arrResults = getLocalStorageFavImages();
       state.results = {
         ...state.results,
-        results: arrResults.slice(0, 30),
-        totalPages: Math.ceil(arrResults.length / 30),
+        results: arrResults.slice(0, 12),
+        totalPages: Math.ceil(arrResults.length / 12),
         totalImages: arrResults,
       };
       state.filteredResults = { ...state.results };

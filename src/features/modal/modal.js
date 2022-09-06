@@ -1,4 +1,4 @@
-import { Modal, Box, Fade, Backdrop, Typography, IconButton, TextareaAutosize, List, ListItem, ListItemText, TextField } from "@mui/material";
+import { Modal, Box, Fade, Backdrop, Typography, IconButton, List, ListItem, ListItemText, TextField } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ const modalStyle = {
   transform: "translate(-50%, -50%)",
   width: 400,
   maxWidth: "80%",
-  bgcolor: "#E9E9E9",
+  bgcolor: "#0a1929",
   borderRadius: 2,
   boxShadow: 24,
   p: 4,
@@ -39,7 +39,7 @@ const ImageModal = ({ favModal, arrImages }) => {
     dispatch(setModalImage(arrFavImagesCopy[imgIndex]));
   };
   const imageDescription = favModal ? (
-    <TextField id="outlined-multiline-static" multiline rows={4} placeholder="< Empty >" defaultValue={img.description} onChange={updateDescription} />
+    <TextField sx={{backgroundColor:"#0a1929"}} id="outlined-multiline-static" multiline rows={4} placeholder="< Empty >" defaultValue={img.description} onChange={updateDescription} />
   ) : (
     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
       {img.description}
@@ -83,22 +83,22 @@ const ImageModal = ({ favModal, arrImages }) => {
       }}
     >
       <Fade in={open}>
-        <Box sx={modalStyle}>
+        <Box sx={modalStyle} color="white">
           <IconButton sx={{ color: "red", position: "absolute", margin: "3px" }} aria-label={`star ${img.title}`} onClick={favoriteIconClickHandler}>
             {favoriteIcon}
           </IconButton>
           <img src={src} alt="" loading="lazy" />
           <List dense sx={{ padding: "5px 0" }}>
             <ListItem sx={{ padding: 0 }}>
-              <ListItemText primary={`Size: ${img.width}x${img.height}`} />
+              <ListItemText secondary={`Size: ${img.width}x${img.height}`} />
             </ListItem>
             <ListItem sx={{ padding: 0 }}>
-              <ListItemText primary={`Likes: ${img.likes}`} />
+              <ListItemText secondary={`Likes: ${img.likes}`} />
             </ListItem>
             <ListItem sx={{ padding: 0 }}>
-              <ListItemText primary={`Added: ${imgAddedDate}`} />
+              <ListItemText secondary={`Added: ${imgAddedDate}`} />
             </ListItem>
-            <IconButton sx={{ color: "black", padding: "5px 0", position: "absolute", right: 0, top: 0 }} onClick={downloadImage}>
+            <IconButton sx={{ color: "white", padding: "5px 0", position: "absolute", right: 0, top: 0 }} onClick={downloadImage}>
               <DownloadIcon />
             </IconButton>
           </List>

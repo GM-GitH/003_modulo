@@ -11,7 +11,7 @@ const root = createRoot(container)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={"/003_modulo"}>
+      <BrowserRouter basename={"/003_modulo/"}>
         <App />
       </BrowserRouter>
     </Provider>

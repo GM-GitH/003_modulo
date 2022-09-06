@@ -4,7 +4,7 @@ import SearchImages from "../features/search/search";
 const Search = () => {
   return (
     <>
-      <SearchBox mt="10" />
+      <SearchBox />
       <SearchImages />
     </>
   );
