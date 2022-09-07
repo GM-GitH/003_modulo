@@ -6,21 +6,21 @@ import { selectFavImages, updateFavImages } from "../favorites/favoritesSlice";
 import { selectFavoriteIcon, setLocalStorageFavImages, splitUrl, toggleFavoriteImg } from "../../features/functions";
 import { selectModalImage, setModalImage, selectModalOpen, toggleModal } from "./modalSlice";
 
-const modalStyle = {
-  position: "absolute",
-  display: "flex",
-  flexDirection: "column",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  maxWidth: "80%",
-  bgcolor: "#0a1929",
-  borderRadius: 2,
-  boxShadow: 24,
-  p: 4,
-};
 const ImageModal = ({ favModal, arrImages }) => {
+  const modalStyle = {
+    position: "absolute",
+    display: "flex",
+    flexDirection: "column",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    maxWidth: "80%",
+    bgcolor: "#0a1929",
+    borderRadius: 2,
+    boxShadow: 24,
+    p: 4,
+  };
   const [favoriteIcon, setFavoriteIcon] = useState();
   const dispatch = useDispatch();
   const open = useSelector(selectModalOpen);
@@ -39,7 +39,7 @@ const ImageModal = ({ favModal, arrImages }) => {
     dispatch(setModalImage(arrFavImagesCopy[imgIndex]));
   };
   const imageDescription = favModal ? (
-    <TextField sx={{backgroundColor:"#0a1929"}} id="outlined-multiline-static" multiline rows={4} placeholder="< Empty >" defaultValue={img.description} onChange={updateDescription} />
+    <TextField id="outlined-multiline-static" multiline rows={4} placeholder="< Empty >" defaultValue={img.description} onChange={updateDescription} />
   ) : (
     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
       {img.description}
@@ -84,10 +84,7 @@ const ImageModal = ({ favModal, arrImages }) => {
     >
       <Fade in={open}>
         <Box sx={modalStyle} color="white">
-          <IconButton sx={{ color: "red", position: "absolute", margin: "3px" }} aria-label={`star ${img.title}`} onClick={favoriteIconClickHandler}>
-            {favoriteIcon}
-          </IconButton>
-          <img src={src} alt="" loading="lazy" />
+          <img src={src} alt="" loading="lazy" height={400} />
           <List dense sx={{ padding: "5px 0" }}>
             <ListItem sx={{ padding: 0 }}>
               <ListItemText secondary={`Size: ${img.width}x${img.height}`} />
@@ -98,6 +95,9 @@ const ImageModal = ({ favModal, arrImages }) => {
             <ListItem sx={{ padding: 0 }}>
               <ListItemText secondary={`Added: ${imgAddedDate}`} />
             </ListItem>
+          <IconButton sx={{ color: "red", position: "absolute", padding: "5px 0",right: 30, top: 0 }} aria-label={`star ${img.title}`} onClick={favoriteIconClickHandler}>
+            {favoriteIcon}
+          </IconButton>
             <IconButton sx={{ color: "white", padding: "5px 0", position: "absolute", right: 0, top: 0 }} onClick={downloadImage}>
               <DownloadIcon />
             </IconButton>
