@@ -84,7 +84,6 @@ const ImageModal = ({ favModal, arrImages }) => {
     >
       <Fade in={open}>
         <Box sx={modalStyle} color="white">
-          <img src={src} alt="" loading="lazy" height={400} />
           <List dense sx={{ padding: "5px 0" }}>
             <ListItem sx={{ padding: 0 }}>
               <ListItemText secondary={`Size: ${img.width}x${img.height}`} />

@@ -7,7 +7,7 @@ const Header = () => {
   }
 
   return (
-      <Toolbar>
+      <Toolbar sx={{display: "block"}}>
         <Typography justifyContent="center" display="flex" variant="h5" sx={{ flexGrow: 1, fontWeight: "bolder", color: "white" }}>
           <Link sx={{ marginRight: "20px", color: "white" }} component={RouterLink} to="/" underline="none" color="white" onMouseOver={changeBackground} onMouseLeave={changeBackground}>
             Home

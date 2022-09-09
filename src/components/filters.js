@@ -14,7 +14,6 @@ const Filters = () => {
   const order = useSelector(selectOrderTerm);
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box id="filters" width="100%" display="block">
         <Box justifyContent="space-between" display="flex">
           <TextField id="filterTerm" label="Keywords.." variant="outlined" defaultValue={useSelector(selectFilterTerm)} onChange={(e) => dispatch(filterByTerm(e.target.value))} />
           <FormControl>
@@ -27,7 +26,6 @@ const Filters = () => {
             </Select>
           </FormControl>
         </Box>
-      </Box>
     </ThemeProvider>
   );
 };

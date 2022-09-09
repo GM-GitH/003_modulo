@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 
 export const Home = () => {
   const style = {
+    display: "block",
     position: "absolute",
     textAlign: "center",
     top: "20%",
@@ -13,7 +14,6 @@ export const Home = () => {
     color: "white",
     borderRadius: 2,
     fontFamily: "Arial",
-    marginTop: "1%",
   };
   const navigate = useNavigate();
   const handleClick = () => {
@@ -23,7 +23,7 @@ export const Home = () => {
   return (
     <>
       <div style={style}>
-        <h1>Welcome to the most powerful photo engine in the world!</h1>
+        <h1 style={{marginTop: 100}}>Welcome to the most powerful photo engine in the world!</h1>
         <Button sx={{ marginTop: 5 }} variant="contained" endIcon={<SearchIcon />} onClick={handleClick}>
           Search
         </Button>
