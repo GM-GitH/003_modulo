@@ -3,7 +3,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavImages, updateFavImages } from "../favorites/favoritesSlice";
-import { selectFavoriteIcon, setLocalStorageFavImages, splitUrl, toggleFavoriteImg } from "../../features/functions";
+import { selectFavoriteIcon, setLocalStorageFavImages, toggleFavoriteImg } from "../../features/functions";
 import { selectModalImage, setModalImage, selectModalOpen, toggleModal } from "./modalSlice";
 
 const ImageModal = ({ favModal, arrImages }) => {
@@ -26,7 +26,6 @@ const ImageModal = ({ favModal, arrImages }) => {
   const open = useSelector(selectModalOpen);
   const img = useSelector(selectModalImage);
   const arrFavImages = useSelector(selectFavImages).totalImages;
-  const src = img.urls ? splitUrl(img.urls.thumb) + "?w=480&h=480&auto=format" : "";
   const imgAddedDate = favModal ? new Date(img.date).toLocaleDateString() : "";
   const updateDescription = (e) => {
     const arrFavImagesCopy = [...arrFavImages];
@@ -94,9 +93,9 @@ const ImageModal = ({ favModal, arrImages }) => {
             <ListItem sx={{ padding: 0 }}>
               <ListItemText secondary={`Added: ${imgAddedDate}`} />
             </ListItem>
-          <IconButton sx={{ color: "red", position: "absolute", padding: "5px 0",right: 30, top: 0 }} aria-label={`star ${img.title}`} onClick={favoriteIconClickHandler}>
-            {favoriteIcon}
-          </IconButton>
+            <IconButton sx={{ color: "red", position: "absolute", padding: "5px 0", right: 30, top: 0 }} aria-label={`star ${img.title}`} onClick={favoriteIconClickHandler}>
+              {favoriteIcon}
+            </IconButton>
             <IconButton sx={{ color: "white", padding: "5px 0", position: "absolute", right: 0, top: 0 }} onClick={downloadImage}>
               <DownloadIcon />
             </IconButton>

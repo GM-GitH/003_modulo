@@ -6,13 +6,8 @@ import Button from "@mui/material/Button";
 export const Home = () => {
   const style = {
     display: "block",
-    position: "absolute",
     textAlign: "center",
-    top: "20%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
     color: "white",
-    borderRadius: 2,
     fontFamily: "Arial",
   };
   const navigate = useNavigate();

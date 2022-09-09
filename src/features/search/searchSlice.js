@@ -3,10 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const searchImages = createAsyncThunk("searchImages/fetchImages", async ({ searchTerm, page = 1 }) => {
   const options = {
     headers: {
-      Authorization: "Client-ID YD9U2OqqqqqzxXKVbd5wxJSyL-II6TX-R-GlwTkFAaE",
+      Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
     },
   };
-  const apiUrl = "https://api.unsplash.com/";
+  const apiUrl = process.env.REACT_APP_URI;
   let url;
   searchTerm.length !== 0 ? (url = `${apiUrl}search/photos?query=${searchTerm}&per_page=12&page=${page}`) : (url = `${apiUrl}photos?per_page=12&order_by=popular&page=${page}`);
   const data = await fetch(url, options);

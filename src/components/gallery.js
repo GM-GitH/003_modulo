@@ -35,11 +35,12 @@ const Gallery = ({ imagesObj, favGallery, setImagesObj }) => {
     <ThemeProvider theme={darkTheme}>
       <ImageList sx={{backgroundColor: '' }} cols={3} variant="quilted" rowHeight={rowHeight}>
         {arrImages.map((item) => (
-          <Card key={item.id} sx={{ borderRadius: 5, margin: 1 }}>
+          <Card key={item.id} sx={{ borderRadius: 5, margin: 1, cursor: "pointer" }}>
             <Image item={item} arrImages={arrImages} rowHeight={rowHeight} />
           </Card>
         ))}
       </ImageList>
+      {}
       <Pagination count={imagesObj.totalPages} page={imagesObj.currentPage} onChange={handlePageChange} sx={{ width: "fit-content", margin: "0 auto 5px auto" }} />
       <ImageModal favModal={favGallery} arrImages={favGallery ? imagesObj.totalImages : imagesObj.results} />
       </ThemeProvider>
