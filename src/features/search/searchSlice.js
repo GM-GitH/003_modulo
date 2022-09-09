@@ -8,10 +8,11 @@ export const searchImages = createAsyncThunk("searchImages/fetchImages", async (
   };
   const apiUrl = process.env.REACT_APP_URI;
   let url;
-  searchTerm.length !== 0 ? (url = `${apiUrl}search/photos?query=${searchTerm}&per_page=12&page=${page}`) : (url = `${apiUrl}photos?per_page=12&order_by=popular&page=${page}`);
+  const searchNonEmpty = searchTerm.length > 0;
+  searchNonEmpty ? (url = `${apiUrl}search/photos?query=${searchTerm}&per_page=12&page=${page}`) : (url = `${apiUrl}photos?per_page=12&order_by=popular&page=${page}`);
   const data = await fetch(url, options);
   const json = await data.json();
-  if (searchTerm.length !== 0) return { results: json.results, totalPages: json.total_pages, currentPage: page };
+  if (searchNonEmpty) return { results: json.results, totalPages: json.total_pages, currentPage: page };
   return { results: json, totalPages: 10, currentPage: page };
 });
 
