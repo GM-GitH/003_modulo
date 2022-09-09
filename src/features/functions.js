@@ -13,12 +13,12 @@ const getLocalStorageFavImages = () => {
   return localStorageFavs;
 };
 const setLocalStorageFavImages = (arrImages) => {
-  if (arrImages.length > 0) {
+  if (arrImages.length >= 0) {
     window.localStorage.setItem("favImages", JSON.stringify(arrImages));
   }
 };
 const isInFavs = (idImg, arrayFavs) => {
-  if (arrayFavs.length > 0) {
+  if (arrayFavs.length >= 0) {
     const savedFav = arrayFavs.find((item) => item.id === idImg);
     if (savedFav) return true;
   }
